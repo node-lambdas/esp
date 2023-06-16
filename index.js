@@ -1,4 +1,5 @@
 import { compile } from "@homebots/espresso-compiler";
+import { Buffer } from "node:buffer";
 
 export default {
   version: 2,
@@ -18,7 +19,6 @@ export default {
           output.send(formatted);
         } catch (error) {
           output.reject(error.message);
-          return;
         }
       },
     },
