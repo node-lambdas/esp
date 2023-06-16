@@ -1,0 +1,8 @@
+{
+  "name": "@node-lambdas/esp",
+  "version": "0.0.0",
+  "type": "module",
+  "dependencies": {
+    "@homebots/espresso-compiler": "latest"
+  }
+}
