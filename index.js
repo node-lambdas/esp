@@ -8,13 +8,18 @@ export default {
       input: "text",
       output: "text",
       handler(input, output) {
-        const bytes = compile(input.body);
-        const buffer = Buffer.from(bytes);
-        const formatted = input.options.buffer
-          ? buffer
-          : buffer.toString("hex");
+        try {
+          const bytes = compile(input.body);
+          const buffer = Buffer.from(bytes);
+          const formatted = input.options.buffer
+            ? buffer
+            : buffer.toString("hex");
 
-        output.send(formatted);
+          output.send(formatted);
+        } catch (error) {
+          output.reject(error.message);
+          return;
+        }
       },
     },
   },
