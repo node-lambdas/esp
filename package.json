@@ -3,6 +3,6 @@
   "version": "0.0.0",
   "type": "module",
   "dependencies": {
-    "@homebots/espresso-compiler": "latest"
+    "@homebots/espresso-compiler": "^1.0.0"
   }
 }
