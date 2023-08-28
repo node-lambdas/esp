@@ -7,14 +7,18 @@ export default {
     compile: {
       default: true,
       input: "text",
-      output: "text",
+      options: {
+        buffer: "true",
+        format: "hex|utf8|base64|ascii",
+      },
       handler(input, output) {
         try {
           const bytes = compile(input.body);
           const buffer = Buffer.from(bytes);
+          
           const formatted = input.options.buffer
             ? buffer
-            : buffer.toString("hex");
+            : buffer.toString(input.options.format || "hex");
 
           output.send(formatted);
         } catch (error) {
